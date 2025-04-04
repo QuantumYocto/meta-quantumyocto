@@ -1,0 +1,11 @@
+[Unit]
+Description=Load bzImage into kexec on boot
+After=network.target local-fs.target
+
+[Service]
+ExecStart=/usr/bin/sh /usr/local/bin/kexec-load.sh
+Type=oneshot
+RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target
